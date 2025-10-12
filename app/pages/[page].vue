@@ -7,11 +7,11 @@ const { data: page, error } = await useAsyncData(
   }
 )
 
-// if (error.value || !page.value) {
-//   throw createError(
-//     error.value || { statusCode: 404, statusMessage: 'Page not found' }
-//   )
-// }
+if (error.value || !page.value) {
+  throw createError(
+    error.value || { statusCode: 404, statusMessage: 'Page not found' }
+  )
+}
 
 useSeoMeta({
   title: page.value?.title,
