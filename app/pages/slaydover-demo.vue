@@ -1,0 +1,42 @@
+<script setup lang="ts">
+import Slaydover from '@crossatko/slaydover'
+import '@crossatko/slaydover/dist/slaydover.css'
+
+const open = ref(true)
+</script>
+
+<template>
+  <div
+    class="flex h-screen w-full items-center justify-center bg-zinc-950 text-black"
+  >
+    <button
+      @click="open = true"
+      class="font-headline bg-zinc-100 p-6 text-base duration-100 hover:bg-white sm:px-8 sm:text-xl"
+    >
+      Open slaydover
+    </button>
+
+    <Slaydover v-model="open" position="bottom md:right">
+      <div
+        class="mx-auto flex max-w-xl flex-col justify-center gap-8 bg-white p-8 text-black md:p-16"
+      >
+        <h2 class="font-headline text-2xl">slaydover content</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic provident
+          quas similique ducimus illo rerum consequuntur, at cumque dicta
+          voluptatem nesciunt quos, numquam eveniet? Debitis vitae eligendi
+          illum repudiandae earum.
+        </p>
+
+        <button
+          type="button"
+          @click="open = false"
+          class="font-headline bg-zinc-950 p-3 text-white duration-200 hover:bg-black sm:px-8"
+        >
+          close
+        </button>
+      </div>
+    </Slaydover>
+  </div>
+</template>

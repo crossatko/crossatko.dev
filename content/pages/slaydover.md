@@ -1,0 +1,70 @@
+---
+title: 'Slaydover - Responsive SlideOver Component for Vue & Nuxt'
+description: 'A lightweight, swipeable slide-over component for Vue and Nuxt, perfect for modals, drawers, and overlays with responsive positioning and smooth gestures.'
+---
+
+# Slaydover
+
+::links{github="crossatko/slaydover"}
+
+::
+
+## Responsive SlideOver Component for Vue & Nuxt
+
+A lightweight, swipeable slide-over component for Vue and Nuxt, perfect for modals, drawers, and overlays with responsive positioning and smooth gestures.
+
+### Installation
+
+```bash
+npm install @crossatko/slaydover
+```
+
+### Props
+
+| Prop        | Type                  | Default                                                                          | Description                                                                    |
+| ----------- | --------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| v-model     | boolean               | false                                                                            | Toggles the slide-over open/closed state.                                      |
+| position    | string                | bottom md:right                                                                  | Sets slide-over side <br /> (e.g., `top`, `right`, `bottom md:right`, `left`). |
+| breakpoints | Record<string,number> | xs: 360<br />sm: 480<br /> md: 768<br /> lg: 1024<br /> xl: 1280<br /> 2xl: 1536 | Custom breakpoints in pixels.                                                  |
+
+### Position Syntax Examples
+
+- `bottom` → Always slides from bottom.
+- `top md:right` → Top on small screens, right on medium and larger.
+- `left md:bottom xl:right` → Left on mobile, bottom on tablets, right on large screens.
+
+### Slots
+
+- **Default**: Main content inside the slide-over.
+- **Overlay**: Custom overlay background (defaults to semi-transparent dark backdrop).
+
+## Example
+
+```vue
+<script setup lang="ts">
+import Slaydover from '@crossatko/slaydover'
+import '@crossatko/slaydover/dist/slaydover.css'
+
+const open = ref(false)
+</script>
+
+<template>
+  <button @click="open = true">Open slaydover</button>
+
+  <Slaydover v-model="open" position="bottom md:right">
+    <div class="bg-white p-4 text-black">
+      <!-- slaydover content -->
+    </div>
+  </Slaydover>
+</template>
+```
+
+## Demo
+
+::slaydover-demo
+
+::
+
+::links{github="crossatko/slaydover"}
+
+::
