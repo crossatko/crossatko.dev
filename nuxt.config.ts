@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'crossatko.dev',
+      htmlAttrs: { lang: 'en' },
       link: [
         {
           rel: 'icon',

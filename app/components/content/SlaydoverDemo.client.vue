@@ -115,6 +115,7 @@ onBeforeUnmount(() => {
         <iframe
           src="/slaydover-demo"
           frameborder="0"
+          title="slaydover demo"
           ref="slaydoverDemo"
           class="duraion-200 h-screen max-h-[70vh] min-h-[400px] w-full max-w-full resize-x border-4 border-zinc-600 transition-all"
           :style="`width: ${
