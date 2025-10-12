@@ -87,7 +87,7 @@ onMounted(() => {
         src="/slaydover-demo"
         ref="slaydoverDemo"
         frameborder="0"
-        class="min-h-[80vh] w-full max-w-full resize-x border-4 border-zinc-600"
+        class="h-screen max-h-[70vh] min-h-[500px] w-full max-w-full resize-x border-4 border-zinc-600"
         :style="`width: ${
           (breakpoints[activeBreakpoint].value &&
             `${breakpoints[activeBreakpoint].value}px`) ||
