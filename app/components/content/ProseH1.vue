@@ -44,7 +44,8 @@ const adjustFontSize = () => {
 }
 
 // Adjust font size on mount and window resize
-onMounted(() => {
+onMounted(async () => {
+  await nextTick()
   adjustFontSize()
   window.addEventListener('resize', adjustFontSize)
 })
