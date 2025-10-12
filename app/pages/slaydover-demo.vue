@@ -7,18 +7,18 @@ definePageMeta({
   layout: 'empty'
 })
 
-const open = ref(true)
+const open = ref(false)
 </script>
 
 <template>
   <div
-    class="flex h-screen w-full items-center justify-center bg-zinc-950 text-black"
+    class="flex h-screen max-h-[100svh] w-full items-center justify-center bg-zinc-950 text-black"
   >
     <button
       @click="open = true"
       class="font-headline bg-zinc-100 p-6 text-base duration-100 hover:bg-white sm:px-8 sm:text-xl"
     >
-      Open slaydover
+      show slaydover
     </button>
 
     <Slaydover v-model="open" position="bottom md:right">

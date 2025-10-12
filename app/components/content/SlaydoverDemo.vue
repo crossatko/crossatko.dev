@@ -57,11 +57,17 @@ function handleMouse(e: MouseEvent) {
   }
 }
 
+const isTouchDevice = ref(false)
+
 onMounted(() => {
   if (typeof window === 'undefined') return
 
   handleResize()
   window.addEventListener('resize', handleResize)
+
+  window.addEventListener('touchstart', () => {
+    isTouchDevice.value = true
+  })
   slaydoverDemo.value?.addEventListener('mousemove', handleMouse)
 })
 
@@ -69,49 +75,65 @@ onBeforeUnmount(() => {
   if (typeof window === 'undefined') return
 
   window?.removeEventListener('resize', handleResize)
+  window?.removeEventListener('touchstart', () => {
+    isTouchDevice.value = true
+  })
   slaydoverDemo.value?.removeEventListener('mousemove', handleMouse)
 })
 </script>
 
 <template>
-  <div
-    class="demo grid max-w-[100svw] grid-cols-2 justify-center gap-2 px-2 md:grid-cols-7 md:px-4"
-  >
-    <button
-      v-for="(breakpoint, b) in breakpoints"
-      :key="b"
-      class="px-4 py-2 text-base font-bold text-black uppercase duration-200 will-change-[transition,width] hover:bg-zinc-300"
-      :disabled="!breakpoint.enabled"
-      @click="activeBreakpoint = b"
-      :class="{
-        'enabled pointer-events-none opacity-20': !breakpoint.enabled,
-        'bg-white': activeBreakpoint === b,
-        'bg-zinc-600': activeBreakpoint !== b,
-        'col-span-2 md:col-span-1': b === 'default'
-      }"
+  <div>
+    <div
+      v-if="!isTouchDevice"
+      class="demo grid max-w-[100svw] grid-cols-2 justify-center gap-2 px-2 md:grid-cols-7 md:px-4"
     >
-      {{ b }}
-    </button>
+      <button
+        v-for="(breakpoint, b) in breakpoints"
+        :key="b"
+        class="px-4 py-2 text-base font-bold text-black uppercase duration-200 will-change-[transition,width] hover:bg-zinc-300"
+        :disabled="!breakpoint.enabled"
+        @click="activeBreakpoint = b"
+        :class="{
+          'enabled pointer-events-none opacity-20': !breakpoint.enabled,
+          'bg-white': activeBreakpoint === b,
+          'bg-zinc-600': activeBreakpoint !== b,
+          'col-span-2 md:col-span-1': b === 'default'
+        }"
+      >
+        {{ b }}
+      </button>
+
+      <div
+        class="text-cetner col-span-2 bg-zinc-800 p-4 text-center md:col-span-7"
+        v-if="!breakpoints['2xl'].enabled"
+      >
+        To view full demo, please use a wider screen.
+      </div>
+
+      <div class="col-span-2 flex justify-center md:col-span-7">
+        <iframe
+          src="/slaydover-demo"
+          frameborder="0"
+          ref="slaydoverDemo"
+          class="duraion-200 h-screen max-h-[70vh] min-h-[400px] w-full max-w-full resize-x border-4 border-zinc-600 transition-all"
+          :style="`width: ${
+            (breakpoints[activeBreakpoint].value &&
+              `${breakpoints[activeBreakpoint].value}px`) ||
+            '100%'
+          }`"
+        ></iframe>
+      </div>
+    </div>
 
     <div
       class="text-cetner col-span-2 bg-zinc-800 p-4 text-center md:col-span-7"
-      v-if="!breakpoints['2xl'].enabled"
+      v-else
     >
-      To view full demo, please use a wider screen.
-    </div>
-
-    <div class="col-span-2 flex justify-center md:col-span-7">
-      <iframe
-        src="/slaydover-demo"
-        frameborder="0"
-        ref="slaydoverDemo"
-        class="duraion-200 h-screen max-h-[70vh] min-h-[500px] w-full max-w-full resize-x border-4 border-zinc-600 transition-all"
-        :style="`width: ${
-          (breakpoints[activeBreakpoint].value &&
-            `${breakpoints[activeBreakpoint].value}px`) ||
-          '100%'
-        }`"
-      ></iframe>
+      You are using a touch device. To view the demo, please click
+      <NuxtLink to="/slaydover-demo" class="underline" target="_blank"
+        >here</NuxtLink
+      >.
     </div>
   </div>
 </template>
