@@ -61,7 +61,7 @@ const open = ref(false)
 </template>
 ```
 
-<h2> 
+<h2 id="demo"> 
   <span>Demo</span>
 <a href="https://github.com/crossatko/crossatko.dev/blob/main/app/pages/slaydover-demo.vue" target="_blank" rel="noopener" class="ml-2 text-sm underline"> Source </a>
 </h2>
