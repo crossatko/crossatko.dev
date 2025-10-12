@@ -6,8 +6,10 @@ const { data: page, error } = await useAsyncData(
     return queryCollection('pages').path(`/pages/${route.params.page}`).first()
   }
 )
+console.log('Fetched page data:', page.value)
 
 if (error.value || !page.value) {
+  console.log('Error fetching page:', error.value)
   throw createError(
     error.value || { statusCode: 404, statusMessage: 'Page not found' }
   )
