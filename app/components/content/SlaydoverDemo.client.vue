@@ -10,27 +10,27 @@ const breakpoints = reactive({
   },
   xs: {
     enabled: true,
-    value: 360
+    value: 368
   },
   sm: {
     enabled: true,
-    value: 640
+    value: 648
   },
   md: {
     enabled: true,
-    value: 768
+    value: 776
   },
   lg: {
     enabled: true,
-    value: 1024
+    value: 1032
   },
   xl: {
     enabled: true,
-    value: 1280
+    value: 1288
   },
   '2xl': {
     enabled: true,
-    value: 1536
+    value: 1544
   }
 })
 
