@@ -5,17 +5,17 @@ const props = defineProps<{
 const links = reactive([
   {
     title: 'Installation',
-    href: '#installation',
+    to: '#installation',
     external: false
   },
   {
     title: 'Example',
-    href: '#example',
+    to: '#example',
     external: false
   },
   {
     title: 'Demo',
-    href: '#demo',
+    to: '#demo',
     external: false
   }
 ])
@@ -23,7 +23,7 @@ const links = reactive([
 if (props.github) {
   links.push({
     title: 'GitHub',
-    href: `https://github.com/${props.github}`,
+    to: `https://github.com/${props.github}`,
     external: true
   })
 }
@@ -35,7 +35,7 @@ if (props.github) {
   >
     <NuxtLink
       v-for="link in links"
-      :to="link.href"
+      :to="link.to"
       :external="link.external || false"
       :target="link.external ? '_blank' : '_self'"
       :key="link.title"

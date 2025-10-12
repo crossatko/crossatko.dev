@@ -3,7 +3,9 @@ title: 'Slaydover - Responsive SlideOver Component for Vue & Nuxt'
 description: 'A lightweight, swipeable slide-over component for Vue and Nuxt, perfect for modals, drawers, and overlays with responsive positioning and smooth gestures.'
 ---
 
-# Slaydover
+::prose-h1{fontSize="8.7vw"}
+slaydover
+::
 
 ::links{github="crossatko/slaydover"}
 

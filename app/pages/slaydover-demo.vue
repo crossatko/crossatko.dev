@@ -2,6 +2,11 @@
 import Slaydover from '@crossatko/slaydover'
 import '@crossatko/slaydover/dist/slaydover.css'
 
+definePageMeta({
+  title: 'slaydover demo',
+  layout: 'empty'
+})
+
 const open = ref(true)
 </script>
 
