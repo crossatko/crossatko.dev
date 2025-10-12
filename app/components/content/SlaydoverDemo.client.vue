@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core'
 
-const { width, height } = useWindowSize()
+const { width } = useWindowSize()
 
 const breakpoints = reactive({
   default: {
@@ -83,10 +83,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div>
+  <div class="demo">
     <div
       v-if="!isTouchDevice"
-      class="demo grid max-w-[100svw] grid-cols-2 justify-center gap-2 px-2 md:grid-cols-7 md:px-4"
+      class="grid max-w-[100svw] grid-cols-2 justify-center gap-2 px-2 md:grid-cols-7 md:px-4"
     >
       <button
         v-for="(breakpoint, b) in breakpoints"
