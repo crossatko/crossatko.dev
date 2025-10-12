@@ -49,9 +49,27 @@ async function handleResize() {
   }
 }
 
+function handleMouse(e: MouseEvent) {
+  if (e.buttons === 1) {
+    slaydoverDemo.value?.classList.remove('transition-all', 'duration-200')
+  } else {
+    slaydoverDemo.value?.classList.add('transition-all', 'duration-200')
+  }
+}
+
 onMounted(() => {
+  if (typeof window === 'undefined') return
+
   handleResize()
   window.addEventListener('resize', handleResize)
+  slaydoverDemo.value?.addEventListener('mousemove', handleMouse)
+})
+
+onBeforeUnmount(() => {
+  if (typeof window === 'undefined') return
+
+  window?.removeEventListener('resize', handleResize)
+  slaydoverDemo.value?.removeEventListener('mousemove', handleMouse)
 })
 </script>
 
@@ -85,9 +103,9 @@ onMounted(() => {
     <div class="col-span-2 flex justify-center md:col-span-7">
       <iframe
         src="/slaydover-demo"
-        ref="slaydoverDemo"
         frameborder="0"
-        class="h-screen max-h-[70vh] min-h-[500px] w-full max-w-full resize-x border-4 border-zinc-600"
+        ref="slaydoverDemo"
+        class="duraion-200 h-screen max-h-[70vh] min-h-[500px] w-full max-w-full resize-x border-4 border-zinc-600 transition-all"
         :style="`width: ${
           (breakpoints[activeBreakpoint].value &&
             `${breakpoints[activeBreakpoint].value}px`) ||
