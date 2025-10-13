@@ -76,8 +76,18 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="demo">
+    <div class="mx-auto -mt-5 mb-2 max-w-3xl md:-mt-7 md:mb-4">
+      <NuxtLink
+        class="text-cetner flex justify-center bg-zinc-200 px-8 py-2 text-xs font-bold text-black uppercase duration-200 hover:bg-white sm:w-auto md:mx-4"
+        to="/slaydover-demo"
+        target="_blank"
+      >
+        Open demo in a new tab
+      </NuxtLink>
+    </div>
+
     <div
-      class="grid max-w-[100svw] grid-cols-2 justify-center gap-2 px-2 md:grid-cols-7 md:px-4"
+      class="grid max-w-[100svw] grid-cols-2 justify-center gap-2 md:grid-cols-7"
     >
       <button
         v-for="(breakpoint, b) in breakpoints"
