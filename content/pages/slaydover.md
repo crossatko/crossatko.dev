@@ -28,6 +28,7 @@ npm install @crossatko/slaydover
 | v-model     | boolean               | false                                                                            | Toggles the slide-over open/closed state.                                      |
 | position    | string                | bottom md:right                                                                  | Sets slide-over side <br /> (e.g., `top`, `right`, `bottom md:right`, `left`). |
 | breakpoints | Record<string,number> | xs: 360<br />sm: 480<br /> md: 768<br /> lg: 1024<br /> xl: 1280<br /> 2xl: 1536 | Custom breakpoints in pixels.                                                  |
+| speed       | number                | 300                                                                              | Animation speed in ms                                                          |
 
 ### Position Syntax Examples
 
@@ -44,6 +45,7 @@ npm install @crossatko/slaydover
 
 ```vue
 <script setup lang="ts">
+import { ref } from 'vue'
 import Slaydover from '@crossatko/slaydover'
 import '@crossatko/slaydover/dist/slaydover.css'
 
@@ -53,12 +55,21 @@ const open = ref(false)
 <template>
   <button @click="open = true">Open slaydover</button>
 
-  <Slaydover v-model="open" position="bottom sm:top lg:right">
-    <div class="bg-white p-4 text-black">
-      <!-- slaydover content -->
-    </div>
+  <Slaydover
+    v-model="open"
+    position="bottom sm:top lg:right"
+    :speed="300"
+  >
+    <div class="content">Your awesome content 👌</div>
   </Slaydover>
 </template>
+
+<style>
+.content {
+  padding: 1rem;
+  background: white;
+}
+</style>
 ```
 
 <h2 id="demo"> 
