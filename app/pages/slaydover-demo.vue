@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import Slaydover from '@crossatko/slaydover'
 import '@crossatko/slaydover/dist/slaydover.css'
 
@@ -21,9 +22,9 @@ const open = ref(false)
       show slaydover
     </button>
 
-    <Slaydover v-model="open" position="bottom sm:top lg:right">
+    <Slaydover v-model="open" position="bottom sm:top lg:right" :speed="300">
       <div
-        class="mx-auto flex max-w-xl flex-col justify-center gap-8 bg-white p-8 text-black lg:p-16"
+        class="mx-auto flex max-w-xl flex-col gap-8 bg-white p-8 text-black lg:p-16"
       >
         <h2 class="font-headline text-2xl">slaydover content</h2>
 
