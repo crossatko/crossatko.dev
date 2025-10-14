@@ -59,6 +59,8 @@ export default defineNuxtConfig({
 })
 ```
 
+## Props & Slots
+
 ### Props
 
 | Prop        | Type                  | Default                                                                          | Description                                                                    |
@@ -76,8 +78,8 @@ export default defineNuxtConfig({
 
 ### Slots
 
-- **Default**: Main content inside the slide-over.
-- **Overlay**: Custom overlay background (defaults to semi-transparent dark backdrop).
+- `default`: Main content inside the slide-over.
+- `overlay`: Custom overlay background (defaults to semi-transparent dark backdrop).
 
 ## Example
 
