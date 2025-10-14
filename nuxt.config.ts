@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()]
   },
 
-  modules: ['@nuxt/fonts', '@nuxt/content'],
+  modules: ['@nuxt/fonts', '@nuxt/content', '@crossatko/slaydover/nuxt'],
 
   fonts: {
     families: [

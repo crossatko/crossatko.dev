@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Slaydover from '@crossatko/slaydover'
-import '@crossatko/slaydover/dist/slaydover.css'
 
 definePageMeta({
   title: 'slaydover demo',
