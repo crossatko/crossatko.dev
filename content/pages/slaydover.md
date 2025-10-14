@@ -15,10 +15,48 @@ slaydover
 
 A lightweight, swipeable slide-over component for Vue and Nuxt, perfect for modals, drawers, and overlays with responsive positioning and smooth gestures.
 
-### Installation
+## Installation
+
+Install the package via npm:
 
 ```bash
 npm install @crossatko/slaydover
+```
+
+### Global insallation
+
+In your main entry file (e.g., `main.js` or `main.ts`):
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import Slaydover from '@crossatko/slaydover'
+import '@crossatko/slaydover/style.css'
+
+const app = createApp(App)
+app.component('Slaydover', Slaydover)
+app.mount('#app')
+```
+
+### Local installation
+
+Import the Slaydover and styles in your Vue component:
+
+```vue
+<script setup lang="ts">
+import Slaydover from '@crossatko/slaydover'
+import '@crossatko/slaydover/style.css'
+</script>
+```
+
+### Nuxt
+
+You can also use provided Nuxt module for automatic registration:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@crossatko/slaydover/nuxt']
+})
 ```
 
 ### Props
@@ -47,7 +85,7 @@ npm install @crossatko/slaydover
 <script setup lang="ts">
 import { ref } from 'vue'
 import Slaydover from '@crossatko/slaydover'
-import '@crossatko/slaydover/dist/slaydover.css'
+import '@crossatko/slaydover/style.css'
 
 const open = ref(false)
 </script>
@@ -55,11 +93,7 @@ const open = ref(false)
 <template>
   <button @click="open = true">Open slaydover</button>
 
-  <Slaydover
-    v-model="open"
-    position="bottom sm:top lg:right"
-    :speed="300"
-  >
+  <Slaydover v-model="open" position="bottom sm:top lg:right">
     <div class="content">Your awesome content 👌</div>
   </Slaydover>
 </template>
