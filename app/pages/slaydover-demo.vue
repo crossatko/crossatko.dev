@@ -20,11 +20,18 @@ const open = ref(false)
       show slaydover
     </button>
 
-    <Slaydover v-model="open" position="bottom sm:top lg:right" :speed="300">
+    <Slaydover
+      v-model="open"
+      position="bottom sm:top lg:right"
+      :speed="300"
+      titleId="slaydover-demo-title"
+    >
       <div
         class="mx-auto flex max-w-xl flex-col gap-8 bg-white p-8 text-black lg:p-16"
       >
-        <h2 class="font-headline text-2xl">slaydover content</h2>
+        <h2 id="slaydover-demo-title" class="font-headline text-2xl">
+          slaydover content
+        </h2>
 
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic provident

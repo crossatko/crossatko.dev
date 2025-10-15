@@ -63,12 +63,13 @@ export default defineNuxtConfig({
 
 ### Props
 
-| Prop        | Type                  | Default                                                                          | Description                                                                    |
-| ----------- | --------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| v-model     | boolean               | false                                                                            | Toggles the slide-over open/closed state.                                      |
-| position    | string                | bottom md:right                                                                  | Sets slide-over side <br /> (e.g., `top`, `right`, `bottom md:right`, `left`). |
-| breakpoints | Record<string,number> | xs: 360<br />sm: 480<br /> md: 768<br /> lg: 1024<br /> xl: 1280<br /> 2xl: 1536 | Custom breakpoints in pixels.                                                  |
-| speed       | number                | 300                                                                              | Animation speed in ms                                                          |
+| Prop          | Type                    | Default                                                        | Description                                                                    |
+| ------------- | ----------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `v-model`     | `boolean`               | `false`                                                        | Toggles the slide-over open/closed state.                                      |
+| `position`    | `string`                | `bottom md:right`                                              | Sets slide-over side <br /> (e.g., `top`, `right`, `bottom md:right`, `left`). |
+| `breakpoints` | `Record<string,number>` | `{xs: 360, sm: 480, md: 768, lg: 1024, xl: 1280, '2xl': 1536}` | Custom breakpoints in pixels.                                                  |
+| `speed`       | `number`                | `300`                                                          | Animation speed in ms                                                          |
+| `titleId`     | `string`                | `unefined`                                                     | Optional ID for the title element for accessibility (ARIA)                     |
 
 ### Position Syntax Examples
 
