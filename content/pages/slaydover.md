@@ -7,7 +7,7 @@ description: 'A lightweight, swipeable slide-over component for Vue and Nuxt, pe
 slaydover
 ::
 
-::links{github="crossatko/slaydover"}
+::links{github="crossatko/slaydover" links="Installation|#installation,Example|#example,Demo|#demo"}
 
 ::
 
@@ -118,6 +118,6 @@ const open = ref(false)
 
 ::
 
-::links{github="crossatko/slaydover"}
+::links{github="crossatko/slaydover" links="Installation|#installation,Example|#example,Demo|#demo"}
 
 ::

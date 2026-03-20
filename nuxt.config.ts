@@ -43,12 +43,14 @@ export default defineNuxtConfig({
   modules: ['@nuxt/fonts', '@nuxt/content', '@crossatko/slaydover/nuxt'],
 
   fonts: {
+    provider: 'local',
     families: [
-      { name: 'BBH Sans Bartle', provider: 'google' },
-      { name: 'IBM Plex Sans', provider: 'google' },
-      { name: 'IBM Plex Mono', provider: 'google' }
+      { name: 'BBH Sans Bartle', provider: 'local' },
+      { name: 'IBM Plex Sans', provider: 'local' },
+      { name: 'IBM Plex Mono', provider: 'local' }
     ]
   },
+
   content: {
     renderer: {
       anchorLinks: {

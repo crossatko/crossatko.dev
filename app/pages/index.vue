@@ -20,8 +20,18 @@ import ContentProseH1 from '~/components/content/ProseH1.vue'
         slaydover
       </h2>
     </NuxtLink>
+    <NuxtLink
+      to="tuidaw"
+      class="relative z-2 flex aspect-16/10 items-center justify-center bg-black/90 duration-200 hover:bg-black"
+    >
+      <h2
+        class="font-headline text-4xl text-[6vw] text-white sm:text-[3vw] md:text-[2vw]"
+      >
+        tuidaw
+      </h2>
+    </NuxtLink>
     <div
-      v-for="i in 5"
+      v-for="i in 4"
       class="font-headline relative z-2 flex aspect-16/10 items-center justify-center bg-black/90 text-white/20"
     >
       coming soon

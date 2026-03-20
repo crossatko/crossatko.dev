@@ -1,32 +1,32 @@
 <script setup lang="ts">
 const props = defineProps<{
   github?: string
+  links?: string
 }>()
-const links = reactive([
-  {
-    title: 'Installation',
-    to: '#installation',
-    external: false
-  },
-  {
-    title: 'Example',
-    to: '#example',
-    external: false
-  },
-  {
-    title: 'Demo',
-    to: '#demo',
-    external: false
-  }
-])
 
-if (props.github) {
-  links.push({
-    title: 'GitHub',
-    to: `https://github.com/${props.github}`,
-    external: true
-  })
-}
+const parsedLinks = computed(() => {
+  const result: { title: string; to: string; external: boolean }[] = []
+
+  if (props.links) {
+    for (const entry of props.links.split(',')) {
+      const [title, to] = entry.split('|').map((s) => s.trim())
+      if (title && to) {
+        const external = to.startsWith('http')
+        result.push({ title, to, external })
+      }
+    }
+  }
+
+  if (props.github) {
+    result.push({
+      title: 'GitHub',
+      to: `https://github.com/${props.github}`,
+      external: true
+    })
+  }
+
+  return result
+})
 </script>
 
 <template>
@@ -34,7 +34,7 @@ if (props.github) {
     class="justify-cetner mx-auto flex w-full max-w-3xl flex-wrap items-center gap-2 px-2 md:px-4"
   >
     <NuxtLink
-      v-for="link in links"
+      v-for="link in parsedLinks"
       :to="link.to"
       :external="link.external || false"
       :target="link.external ? '_blank' : '_self'"
